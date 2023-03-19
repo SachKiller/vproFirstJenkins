@@ -118,7 +118,8 @@ pipeline {
     stage ('Deploy to ECS Staging'){
         steps{
             withAWS(credentials: 'Awscreds', region: 'us-east-1')
-            sh 'aws ecs update-service --cluster vprostaging --service vproappstagesvc --force-new-deployment'
+              ecsTask(taskDefinition: 'vproappstagetask', cluster: 'vprostaging', service: 'vproappstagesvc')
+          //  sh 'aws ecs update-service --cluster vprostaging --service vproappstagesvc --force-new-deployment'
         }
     }
 
