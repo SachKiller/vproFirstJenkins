@@ -6,7 +6,7 @@ pipeline {
     }
     
     environment {
-        SNAP_REPO = 'vprofile-snapshot'
+        SNAP_REPO = 'vprofile-snapshot' 
 		NEXUS_USER = 'admin'
 		NEXUS_PASS = 'sachin123'
 		RELEASE_REPO = 'vprofile-release'
@@ -64,7 +64,7 @@ pipeline {
         }
         stage('Quality Gate'){
             steps{
-                timeout(time: 1, unit: 'MINUTES'){
+                timeout(time: 10, unit: 'MINUTES'){
                     waitForQualityGate abortPipeline: true
                 }
             }
