@@ -1,4 +1,4 @@
- def buildNumber = Jenkins.instance.getItem('cicd-jenkins-bean-stage').lastSuccessfulBuild.number
+def buildNumber = Jenkins.instance.getItem('cicd-jenkins-bean-stage').lastSuccessfulBuild.number
 
 def COLOR_MAP = [
     'SUCCESS': 'good', 
@@ -25,7 +25,7 @@ pipeline {
         SONARSERVER = 'sonarserver'
         SONARSCANNER = 'sonarscanner'
         AWS_S3_BUCKET = 'cicdjenbean'
-        AWS_EB_APP_NAME = 'vpro-jen-bean'
+        AWS_EB_APP_NAME = 'vproapp-prod'
         AWS_EB_ENVIRONMENT = 'Vproappprod-env'
         AWS_EB_APP_VERSION = "${buildNumber}"
         ARTIFACT_NAME = "vprofile-v${buildNumber}.war"
